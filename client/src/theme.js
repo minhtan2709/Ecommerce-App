@@ -1,4 +1,4 @@
-import { CreateTheme } from '@mui/icons-material/styles'
+import { createTheme } from '@mui/material/styles'
 export const shades = {
     primary: {
         100: "#cccccc",
@@ -48,7 +48,7 @@ export const theme = createTheme({
             light: shades.neutral[100],
         }
     },
-    typogtraphy:{
+    typography:{
         fontFamily:["Fauna One", "sans-serif"].join(""),
         fontSize: 11,
         h1:{

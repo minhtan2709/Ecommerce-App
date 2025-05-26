@@ -5,7 +5,8 @@ import App from './App';
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from '@mui/material';
 import {theme } from "./theme";
-import { configureStore, Provider } from "@reduxjs/toolkit";
+import { Provider } from 'react-redux';
+import { configureStore} from '@reduxjs/toolkit';
 import cartReducer from "./state";
 
 const store = configureStore({
