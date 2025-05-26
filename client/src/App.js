@@ -7,7 +7,10 @@ import {
 } from 'react-router-dom'
 import Home from "./scenses/home/Home";
 import ItemDetails from "./scenses/itemDetails/ItemDetails";
-import Confirmation from "./scenses/checkout/Confirmation";
+import Navbar from './scenses/global/Navbar';
+import Checkout from './scenses/checkout/Checkout';
+import Confirmation from './scenses/checkout/Confirmation';
+import CartMenu from './scenses/global/CartMenu';
 
 const ScrollToTop =() =>{
   const { pathname } = useLocation();
@@ -26,7 +29,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="item/:itemId" element={<ItemDetails />} />
           <Route path="checkout" element={<Checkout />} />
-          <Route path="checkout/success" element={<Comfirmation />} />
+          <Route path="checkout/success" element={<Confirmation />} />
         </Routes>
         <CartMenu />
     </BrowserRouter>

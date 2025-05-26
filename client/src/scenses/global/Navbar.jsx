@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Badge, Box, IconButton } from '@mui/material';
 import {
     PersonOutline,
-    ShoppingBadgeOutlined,
+    ShoppingBagOutlined,
     MenuOutlined,
     SearchOutlined
 } from '@mui/icons-material'
@@ -70,9 +70,9 @@ const Navbar = () => {
 
                 
                 <IconButton 
-                onClick = {()=> dispatch(setIsCartOpen({}))}
-                sx = {{color:"black"}}>
-                    <ShoppingBadgeOutlined />
+                    onClick = {()=> dispatch(setIsCartOpen({}))}
+                    sx = {{color:"black"}}>
+                        <ShoppingBagOutlined />
 
                 </IconButton>
                 </Badge>

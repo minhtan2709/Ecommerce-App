@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Icon, IconButton, Typography } from "@mui/material";
+import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
 import { useSelector, useDispatch } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
@@ -12,7 +12,6 @@ import {
     setIsCartOpen,
 } from "../../state";
 import { useNavigate } from "react-router-dom";
-import { JoinFullSharp } from "@mui/icons-material";
 
 const FlexBox = styled(Box)`
     display: flex
@@ -22,9 +21,10 @@ const FlexBox = styled(Box)`
 const CartMenu = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart.cart);
     const iscartOpen = useSelector((state) => state.cart.isCartOpen)
 
-    const totalPrice = cart.reducer((total,item) => {
+    const totalPrice = cart.reduce((total,item) => {
         return total + item.count * item.attributes.price;
     
     
@@ -152,3 +152,4 @@ const CartMenu = () => {
     )
 
 }
+export default CartMenu
