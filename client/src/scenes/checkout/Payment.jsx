@@ -7,7 +7,7 @@ const Payment = ({ values, touched, errors, handleBlur, handleChange }) => {
       {/* CONTACT INFO */}
       <Box>
         <Typography sx={{ mb: "15px" }} fontSize="18px">
-          Contact Info
+          Thông tin liên hệ
         </Typography>
         <TextField
           fullWidth

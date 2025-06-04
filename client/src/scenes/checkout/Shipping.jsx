@@ -14,7 +14,7 @@ const Shipping = ({
       {/* BILLING FORM */}
       <Box>
         <Typography sx={{ mb: "15px" }} fontSize="18px">
-          Billing Information
+          Thông tin hóa đơn
         </Typography>
         <AddressForm
           type="billingAddress"
@@ -48,7 +48,7 @@ const Shipping = ({
       {!values.shippingAddress.isSameAddress && (
         <Box>
           <Typography sx={{ mb: "15px" }} fontSize="18px">
-            Shipping Information
+            Thông tin giao hàng
           </Typography>
           <AddressForm
             type="shippingAddress"

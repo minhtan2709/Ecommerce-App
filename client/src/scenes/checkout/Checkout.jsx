@@ -9,7 +9,7 @@ import Shipping from "./Shipping";
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
-  "pk_test_51LgU7yConHioZHhlAcZdfDAnV9643a7N1CMpxlKtzI1AUWLsRyrord79GYzZQ6m8RzVnVQaHsgbvN1qSpiDegoPi006QkO0Mlc"
+  "pk_test_51RTy8GR0mPZdLyuaKJwxo6MZcgruSlXSwS05xHJxmDnlKprtOd75E54qzhjpTcja07ENFFbM6GKf7tE29sdQ9N4U00ZMa8xGes"
 );
 
 const Checkout = () => {
@@ -52,7 +52,21 @@ const Checkout = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),
     });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Loi call api:", errorText);
+      return;
+    }
+
     const session = await response.json();
+    console.log("Session nhan:", session);
+
+    if (!session.id) {
+      console.error("ko tim thay session id trong response");
+      return;
+    }
+
     await stripe.redirectToCheckout({
       sessionId: session.id,
     });
@@ -62,10 +76,10 @@ const Checkout = () => {
     <Box width="80%" m="100px auto">
       <Stepper activeStep={activeStep} sx={{ m: "20px 0" }}>
         <Step>
-          <StepLabel>Billing</StepLabel>
+          <StepLabel>Hóa Đơn</StepLabel>
         </Step>
         <Step>
-          <StepLabel>Payment</StepLabel>
+          <StepLabel>Thanh Toán</StepLabel>
         </Step>
       </Stepper>
       <Box>

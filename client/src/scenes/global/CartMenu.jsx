@@ -52,7 +52,7 @@ const CartMenu = () => {
         <Box padding="30px" overflow="auto" height="100%">
           {/* HEADER */}
           <FlexBox mb="15px">
-            <Typography variant="h3">SHOPPING BAG ({cart.length})</Typography>
+            <Typography variant="h3">Giỏ Hàng ({cart.length})</Typography>
             <IconButton onClick={() => dispatch(setIsCartOpen({}))}>
               <CloseIcon />
             </IconButton>
@@ -108,7 +108,7 @@ const CartMenu = () => {
                         </IconButton>
                       </Box>
                       <Typography fontWeight="bold">
-                        {item.attributes.price}.000 VND
+                        {item.attributes.price.toLocaleString("vi-VN")} VND
                       </Typography>
                     </FlexBox>
                   </Box>
@@ -122,7 +122,7 @@ const CartMenu = () => {
           <Box m="20px 0">
             <FlexBox m="20px 0">
               <Typography fontWeight="bold">Tổng tiền</Typography>
-              <Typography fontWeight="bold">{totalPrice}.000 VND</Typography>
+              <Typography fontWeight="bold">{totalPrice.toLocaleString("vi-VN")} VND</Typography>
             </FlexBox>
             <Button
               sx={{

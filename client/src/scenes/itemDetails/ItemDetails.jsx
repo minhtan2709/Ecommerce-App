@@ -68,12 +68,12 @@ const ItemDetails = () => {
         <Box flex="1 1 50%" mb="40px">
           <Box display="flex" justifyContent="space-between">
             <Box>Home/Item</Box>
-            <Box>Prev Next</Box>
+            <Box>Trước | Sau</Box>
           </Box>
 
           <Box m="65px 0 25px 0">
             <Typography variant="h3">{item?.attributes?.name}</Typography>
-            <Typography>${item?.attributes?.price}</Typography>
+            <Typography>{item?.attributes?.price.toLocaleString("vi-VN")} VND</Typography>
             <Typography sx={{ mt: "20px" }}>
               {item?.attributes?.longDescription}
             </Typography>
@@ -105,15 +105,15 @@ const ItemDetails = () => {
               }}
               onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
             >
-              ADD TO CART
+              Thêm vào giỏ hàng
             </Button>
           </Box>
           <Box>
             <Box m="20px 0 5px 0" display="flex">
               <FavoriteBorderOutlinedIcon />
-              <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography>
+              <Typography sx={{ ml: "5px" }}> Thêm vào danh sách yêu thích</Typography>
             </Box>
-            <Typography>CATEGORIES: {item?.attributes?.category}</Typography>
+            <Typography>Danh mục: {item?.attributes?.category}</Typography>
           </Box>
         </Box>
       </Box>
@@ -129,13 +129,13 @@ const ItemDetails = () => {
         {value === "description" && (
           <div>{item?.attributes?.longDescription}</div>
         )}
-        {value === "reviews" && <div>reviews</div>}
+        {value === "reviews" && <div>Reviews</div>}
       </Box>
 
       {/* RELATED ITEMS */}
       <Box mt="50px" width="100%">
         <Typography variant="h3" fontWeight="bold">
-          Related Products
+          SẢN PHẨM LIÊN QUAN
         </Typography>
         <Box
           mt="20px"

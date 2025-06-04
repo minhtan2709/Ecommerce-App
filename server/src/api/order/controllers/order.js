@@ -18,9 +18,14 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             .service("api::item.item")
             .findOne(product.id);
 
+          if (!item) {
+            throw new Error(`Item with ID ${product.id} not found`);
+          }
+
+
           return {
             price_data: {
-              currency: "usd",
+              currency: "VND",
               product_data: {
                 name: item.name,
               },
@@ -49,8 +54,9 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       // return the session id
       return { id: session.id };
     } catch (error) {
+      console.error("Lỗi tạo đơn hàng:", error);  
       ctx.response.status = 500;
-      return { error: { message: "There was a problem creating the charge" } };
+      return { error: { message: error.message } };
     }
   },
 }));

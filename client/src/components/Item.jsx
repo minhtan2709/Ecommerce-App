@@ -84,7 +84,7 @@ const Item = ({ item, width }) => {
             .replace(/^./, (str) => str.toUpperCase())}
         </Typography>
         <Typography>{name}</Typography>
-        <Typography fontWeight="bold">{price}.000 VND</Typography>
+        <Typography fontWeight="bold">{price.toLocaleString("vi-VN")} VND</Typography>
       </Box>
     </Box>
   );

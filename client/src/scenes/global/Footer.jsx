@@ -24,7 +24,7 @@ function Footer() {
             mb="30px"
             color={shades.secondary[500]}
           >
-            ECOMMER
+            ECOMMERCE
           </Typography>
           <div>
             Nền tảng thương mại điện tử hiện đại, mang đến trải nghiệm mua sắm trực tuyến tiện lợi, an toàn và nhanh chóng.
@@ -57,12 +57,12 @@ function Footer() {
             Liên Hệ Với Chúng Tôi
           </Typography>
           <Typography mb="30px">
-            Penacony
+           Địa chỉ: Penacony
           </Typography>
           <Typography mb="30px" sx={{ wordWrap: "break-word" }}>
             Email: 22h1120116@ut.edu.vn
           </Typography>
-          <Typography mb="30px">(+84)77 467 4857</Typography>
+          <Typography mb="30px">SĐT: (+84)77 467 4857</Typography>
         </Box>
       </Box>  
     </Box>
