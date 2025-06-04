@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
 
+
 function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
