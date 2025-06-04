@@ -21,17 +21,17 @@
       "type": "richtext"
     },
     "price": {
-      "type": "integer"
+      "type": "decimal"
     },
     "image": {
-      "type": "media",
-      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
     "category": {
       "type": "enumeration",

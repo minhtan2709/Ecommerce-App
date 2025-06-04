@@ -16,12 +16,16 @@ const Item = ({ item, width }) => {
     palette: { neutral },
   } = useTheme();
 
-  // Trích xuất thông tin theo cấu trúc JSON thực tế
-  const { category, price, name, image, id } = item;
-
-  const imageUrl = image?.formats?.medium?.url 
-    ? `http://localhost:1337${image.formats.medium.url}`
-    : "https://via.placeholder.com/300x400?text=No+Image";
+  const { category, price, name, image } = item.attributes;
+  const {
+    data: {
+      attributes: {
+        formats: {
+          medium: { url },
+        },
+      },
+    },
+  } = image;
 
   return (
     <Box width={width}>
@@ -31,12 +35,12 @@ const Item = ({ item, width }) => {
         onMouseOut={() => setIsHovered(false)}
       >
         <img
-          alt={name}
-          width="300px"
+          alt={item.name}
+          width="350px"
           height="400px"
-          src={imageUrl}
-          onClick={() => navigate(`/item/${id}`)}
-          style={{ cursor: "pointer", objectFit: "cover" }}
+          src={`http://localhost:1337${url}`}
+          onClick={() => navigate(`/item/${item.id}`)}
+          style={{ cursor: "pointer" }}
         />
         <Box
           display={isHovered ? "block" : "none"}
@@ -44,7 +48,7 @@ const Item = ({ item, width }) => {
           bottom="10%"
           left="0"
           width="100%"
-          padding="0 5%"
+          padding="0 10%"
         >
           <Box display="flex" justifyContent="space-between">
             <Box
@@ -76,7 +80,7 @@ const Item = ({ item, width }) => {
       <Box mt="3px">
         <Typography variant="subtitle2" color={neutral.dark}>
           {category
-            ?.replace(/([A-Z])/g, "$1")
+            .replace(/([A-Z])/g, " $1")
             .replace(/^./, (str) => str.toUpperCase())}
         </Typography>
         <Typography>{name}</Typography>
